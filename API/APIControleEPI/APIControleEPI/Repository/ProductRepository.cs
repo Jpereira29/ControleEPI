@@ -8,5 +8,10 @@ namespace APIControleEPI.Repository
         public ProductRepository(AppDbContext context) : base(context)
         {
         }
+
+        public async Task<IEnumerable<Product>> GetProductsPerCategory()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

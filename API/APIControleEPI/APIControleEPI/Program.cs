@@ -1,3 +1,6 @@
+using APIControleEPI.Context;
+using APIControleEPI.Repository.UnitOFWork;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +11,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors();
+
+builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 

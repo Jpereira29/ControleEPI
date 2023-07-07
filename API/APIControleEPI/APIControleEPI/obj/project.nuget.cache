@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "OZJG0peyiDaoQcAWDz5gi3PoUopximcYpL2v2y62XvTfF3vCX15phk4YkttMRzFcgPXCVbEZem2+qkWj/sZJ4A==",
+  "dgSpecHash": "R7Df5KUaLkjVpClrFZVv6cf93J+7vOF4CV9IRfJ9xrquSEewLsD+9vPLCU8AsT3OOJmnI5z2QEm556reauCo2g==",
   "success": true,
   "projectFilePath": "D:\\PROJETOS\\DESAFIOS\\ZDZCode\\API\\APIControleEPI\\APIControleEPI\\APIControleEPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jorge\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.19\\microsoft.entityframeworkcore.6.0.19.nupkg.sha512",
     "C:\\Users\\jorge\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.19\\microsoft.entityframeworkcore.abstractions.6.0.19.nupkg.sha512",
     "C:\\Users\\jorge\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.19\\microsoft.entityframeworkcore.analyzers.6.0.19.nupkg.sha512",
+    "C:\\Users\\jorge\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\6.0.19\\microsoft.entityframeworkcore.inmemory.6.0.19.nupkg.sha512",
     "C:\\Users\\jorge\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\jorge\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\jorge\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.1\\microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",

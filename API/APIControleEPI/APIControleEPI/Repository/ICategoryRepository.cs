@@ -1,6 +1,8 @@
-﻿namespace APIControleEPI.Repository
+﻿using APIControleEPI.Models;
+
+namespace APIControleEPI.Repository
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IRepository<Category>
     {
     }
 }

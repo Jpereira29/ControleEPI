@@ -35,3 +35,4 @@ D:\PROJETOS\DESAFIOS\ZDZCode\API\APIControleEPI\APIControleEPI\obj\Debug\net6.0\
 D:\PROJETOS\DESAFIOS\ZDZCode\API\APIControleEPI\APIControleEPI\obj\Debug\net6.0\APIControleEPI.pdb
 D:\PROJETOS\DESAFIOS\ZDZCode\API\APIControleEPI\APIControleEPI\obj\Debug\net6.0\APIControleEPI.genruntimeconfig.cache
 D:\PROJETOS\DESAFIOS\ZDZCode\API\APIControleEPI\APIControleEPI\obj\Debug\net6.0\ref\APIControleEPI.dll
+D:\PROJETOS\DESAFIOS\ZDZCode\API\APIControleEPI\APIControleEPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
