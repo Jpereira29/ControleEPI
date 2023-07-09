@@ -4,6 +4,6 @@ namespace APIControleEPI.Repository
 {
     public interface IProductRepository : IRepository<Product>
     {
-        Task<IEnumerable<Product>> GetProductsPerCategory();
+        Task<IEnumerable<Product>> GetProductsPerCategory(int categoryId);
     }
 }

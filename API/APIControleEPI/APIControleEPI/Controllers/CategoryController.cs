@@ -100,7 +100,7 @@ namespace APIControleEPI.Controllers
             }
         }
 
-        [HttpDelete("id:int")]
+        [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteCategory(int id)
         {
             try

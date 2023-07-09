@@ -16,10 +16,10 @@ namespace APIControleEPI.Controllers
             _uof = uof;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetAllProductsPerCategory()
+        [HttpGet("Category/{categoryId:int}")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetAllProductsPerCategory(int categoryId)
         {
-            return await _uof.ProductRepository.Get().ToListAsync();
+            return Ok(await _uof.ProductRepository.GetProductsPerCategory(categoryId));
         }
 
         [HttpGet("{id:int}")]
@@ -98,7 +98,7 @@ namespace APIControleEPI.Controllers
             }
         }
 
-        [HttpDelete("id:int")]
+        [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteProduct(int id)
         {
             try

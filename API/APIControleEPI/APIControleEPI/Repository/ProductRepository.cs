@@ -1,5 +1,7 @@
 ﻿using APIControleEPI.Context;
 using APIControleEPI.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace APIControleEPI.Repository
 {
@@ -9,9 +11,9 @@ namespace APIControleEPI.Repository
         {
         }
 
-        public async Task<IEnumerable<Product>> GetProductsPerCategory()
+        public async Task<IEnumerable<Product>> GetProductsPerCategory(int categoryId)
         {
-            throw new NotImplementedException();
+            return await _context.Set<Product>().Where(p=> p.CategoryId == categoryId).ToListAsync();
         }
     }
 }

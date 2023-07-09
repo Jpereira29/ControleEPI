@@ -12,10 +12,6 @@ namespace APIControleEPI.Models
         [MaxLength(80)]
         public string? Name { get; set; }
 
-        [Required]
-        [MaxLength(300)]
-        public string? ImageUrl { get; set; }
-
         public ICollection<Product> Products { get; set; } = new Collection<Product>();
     }
 }
