@@ -27,7 +27,7 @@ namespace APIControleEPI.Controllers
         {
             try
             {
-                var product = await _uof.ProductRepository.GetById(c => c.ProdutId == id);
+                var product = await _uof.ProductRepository.GetById(c => c.ProductId == id);
                 if (product is null)
                 {
                     return NotFound("Produto não encontrado!");
@@ -55,6 +55,7 @@ namespace APIControleEPI.Controllers
                 var hasProduct = await _uof.ProductRepository.GetById(c => c.Name == product.Name);
                 if (hasProduct is null)
                 {
+                    product.DateRegister = DateTime.Now;
                     _uof.ProductRepository.Add(product);
                     await _uof.Commit();
 
@@ -75,12 +76,12 @@ namespace APIControleEPI.Controllers
         {
             try
             {
-                if (id != product.ProdutId)
+                if (id != product.ProductId)
                 {
                     return BadRequest();
                 }
 
-                var hasProduct = await _uof.ProductRepository.GetById(c => c.Name == product.Name && c.ProdutId != product.ProdutId);
+                var hasProduct = await _uof.ProductRepository.GetById(c => c.Name == product.Name && c.ProductId != product.ProductId);
                 if (hasProduct is null)
                 {
                     _uof.ProductRepository.Update(product);
@@ -103,7 +104,7 @@ namespace APIControleEPI.Controllers
         {
             try
             {
-                var product = await _uof.ProductRepository.GetById(p => p.ProdutId == id);
+                var product = await _uof.ProductRepository.GetById(p => p.ProductId == id);
 
                 if (product is null)
                 {

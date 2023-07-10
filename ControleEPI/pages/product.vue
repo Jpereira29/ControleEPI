@@ -1,25 +1,37 @@
 <template>
-  <v-row>
-    <v-col class="text-center">
-      <img
-        src="/v.png"
-        alt="Vuetify.js"
-        class="mb-5"
-      >
-      <blockquote class="blockquote">
-        &#8220;First, solve the problem. Then, write the code.&#8221;
-        <footer>
-          <small>
-            <em>&mdash;John Johnson</em>
-          </small>
-        </footer>
-      </blockquote>
-    </v-col>
-  </v-row>
+  <div>
+    <Product v-if="product" :data.sync="product" :modalEpi.sync="modalEpi" />
+    <DialogNewProduct v-if="modalEpi" :modalEpi.sync="modalEpi" 
+      :categoryId.sync="product.categoryId" 
+      :update.sync="update"
+      :product.sync="product"
+    />
+  </div>
 </template>
 
 <script>
+import Product from '~/components/Product.vue';
+import DialogNewProduct from '~/components/DialogNewProduct.vue';
+import { getProduct } from '../axios/api.ts'
+
 export default {
-  name: 'InspirePage'
+  name: 'InspirePage',
+  data() {
+    return {
+      product: null,
+      modalEpi: false,
+      update: true
+    };
+  },
+  mounted() {
+    getProduct(1)
+      .then(response => {
+        this.product = response.data
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  },
+  components: { Product, DialogNewProduct }
 }
 </script>

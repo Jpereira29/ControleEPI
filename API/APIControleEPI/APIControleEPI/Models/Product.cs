@@ -7,7 +7,7 @@ namespace APIControleEPI.Models
     public class Product
     {
         [Key]
-        public int ProdutId { get; set; }
+        public int ProductId { get; set; }
 
         [Required]
         [MaxLength(80)]
@@ -26,6 +26,7 @@ namespace APIControleEPI.Models
         public string? ImageUrl { get; set; }
         public DateTime DateRegister { get; set; }
 
+        [Required]
         public int CategoryId { get; set; }
 
         [JsonIgnore]

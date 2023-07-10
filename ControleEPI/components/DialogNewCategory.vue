@@ -48,9 +48,8 @@ export default {
         name: this.name
       };
       try {
-        const response = await axios.post('https://localhost:7188/api/Category', data);
+        await axios.post('https://localhost:7188/api/Category', data);
         this.dialog = false;
-        console.log(response.data);
 
         getCategories()
           .then(response => {

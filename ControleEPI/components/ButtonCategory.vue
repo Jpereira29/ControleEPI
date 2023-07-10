@@ -1,19 +1,29 @@
 <template>
-    <v-layout class="overflow-visible" style="height: 56px; left: 0;">
-        <v-bottom-navigation v-model="value" color="primary">
-            <v-btn v-for="category in categories" :key="category.categoryId" @click="getProducts(category.categoryId)">
-                <v-icon>mdi-history</v-icon>
-                {{ category.name }}
-            </v-btn>
-        </v-bottom-navigation>
-    </v-layout>
-</template>
+    <div class="text-center">
+      <v-menu v-for="category in categories" :key="category.categoryId">
+        <template v-slot:activator="{ on }">
+          <v-btn v-on="on"  style="margin: 5px;">
+            {{ category.name }}
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item @click="setModalEpi(category.categoryId)">
+            <v-list-item-title>Adicionar EPI</v-list-item-title>
+          </v-list-item>
+          <v-list-item @click="getProducts(category.categoryId)">
+            <v-list-item-title>Listar EPIs</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </div>
+  </template>
+  
+
 <script>
 import { getProductsPerCategory } from '../axios/api.ts'
 
 export default {
-    data: () => ({ value: 0 }),
-    props: ["categories", "products"],
+    props: ["categories", "products", "modalEpi", "categoryId"],
     methods: {
         getProducts(id) {
             getProductsPerCategory(id)
@@ -23,6 +33,10 @@ export default {
                 .catch(error => {
                     console.error(error);
                 });
+        },
+        setModalEpi(categoryId) {
+          this.$emit('update:modalEpi', true);
+          this.$emit('update:categoryId', categoryId);
         }
     }
 }
