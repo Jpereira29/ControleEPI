@@ -23,8 +23,13 @@ export default {
       update: true
     };
   },
+  methods: {
+    productId() {
+      return this.$route.params.id;
+    },
+  },
   mounted() {
-    getProduct(1)
+    getProduct(this.productId())
       .then(response => {
         this.product = response.data
       })

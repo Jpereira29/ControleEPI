@@ -59,7 +59,7 @@ namespace APIControleEPI.Controllers
                     _uof.ProductRepository.Add(product);
                     await _uof.Commit();
 
-                    return Ok();
+                    return Ok(product);
                 }
                 return BadRequest("Produto já existe!");
             }
@@ -87,7 +87,7 @@ namespace APIControleEPI.Controllers
                     _uof.ProductRepository.Update(product);
                     await _uof.Commit();
 
-                    return Ok();
+                    return Ok(product);
                 }
 
                 return BadRequest("Produto já existe!");

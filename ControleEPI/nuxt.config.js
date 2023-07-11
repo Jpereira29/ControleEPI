@@ -22,6 +22,14 @@ export default {
     ]
   },
 
+  routes: [
+    {
+      name: 'product-id',
+      path: '/product/:id',
+      component: '~/pages/product.vue'
+    }
+  ],
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],

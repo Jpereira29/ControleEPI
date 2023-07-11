@@ -36,8 +36,15 @@ export async function createProduct(data: Product) {
 
 export async function updateProduct(data: Product) {
     try {
-        console.log(data)
         return await axios.put(`${url}/Product/${data.productId}`, data);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export async function deleteProduct(id: number) {
+    try {
+        return await axios.delete(`${url}/Product/${id}`);
     } catch (error) {
         console.error(error);
     }

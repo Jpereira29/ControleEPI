@@ -1,10 +1,6 @@
 <template>
   <v-card class="mx-auto" max-width="344">
-    <v-img
-      :src="product.imageUrl"
-      height="200px"
-      cover
-    ></v-img>
+    <v-img :src="product.imageUrl" height="200px" cover></v-img>
 
     <v-card-title> {{ product.name }} </v-card-title>
 
@@ -15,10 +11,12 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'"
-        @click="show = !show"
-      ></v-btn>
+      <v-btn @click="toggleShow">
+        <template v-slot:default>
+          <v-icon v-if="show">mdi-chevron-up</v-icon>
+          <v-icon v-else>mdi-chevron-down</v-icon>
+        </template>
+      </v-btn>
     </v-card-actions>
     <v-expand-transition>
       <div v-show="show">
@@ -34,9 +32,11 @@
 
 <script>
 export default {
-  data: () => ({
-    show: false,
-  }),
+  data() {
+    return {
+      show: false,
+    }
+  },
   props: ['data', 'modalEpi'],
   computed: {
     product() {
@@ -46,7 +46,10 @@ export default {
   methods: {
     setModalEpi() {
       this.$emit('update:modalEpi', true);
-    }
+    },
+    toggleShow() {
+      this.show = !this.show;
+    },
   }
 }
 </script>

@@ -1,7 +1,8 @@
 <template>
   <v-container>
     <DialogNewCategory :data.sync="categories" />
-    <DialogNewProduct v-if="modalEpi" :modalEpi.sync="modalEpi" :categoryId.sync="categoryId" />
+    <DialogNewProduct v-if="modalEpi" :modalEpi.sync="modalEpi" 
+    :categoryId.sync="categoryId" :products.sync="products" />
 
     <v-row align="center" justify="center">
       <v-col cols="auto">
@@ -9,7 +10,7 @@
           :modalEpi.sync="modalEpi" :categoryId.sync="categoryId" />
       </v-col>
     </v-row>
-    <ProductCard v-if="products.length" v-for="product in products" :data="product" />
+    <ProductCard v-if="products.length" v-for="product in products" :data="product" :key="product.productId" />
   </v-container>
 </template>
 
@@ -39,6 +40,11 @@ export default {
       .catch(error => {
         console.error(error);
       });
+  },
+  methods: {
+    updateProducts(newProducts) {
+      this.products = newProducts;
+    },
   },
   components: { DialogNewCategory, ButtonCategory, ProductCard, DialogNewProduct }
 }

@@ -2,16 +2,13 @@
     <div class="text-center">
       <v-menu v-for="category in categories" :key="category.categoryId">
         <template v-slot:activator="{ on }">
-          <v-btn v-on="on"  style="margin: 5px;">
+          <v-btn v-on="on"  style="margin: 5px;" @click="getProducts(category.categoryId)">
             {{ category.name }}
           </v-btn>
         </template>
         <v-list>
           <v-list-item @click="setModalEpi(category.categoryId)">
             <v-list-item-title>Adicionar EPI</v-list-item-title>
-          </v-list-item>
-          <v-list-item @click="getProducts(category.categoryId)">
-            <v-list-item-title>Listar EPIs</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>

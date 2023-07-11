@@ -15,17 +15,14 @@
 }
 </style>
 <template>
-    <div class="d-flex align-center flex-column" v-if="product">
-        <v-card width="400">
+    <div class="d-flex align-center flex-column">
+        <v-card width="400" style="margin: 5px;" @click="redirectToProductPage">
             <div class="parent-div">
                 <v-img :src="product.imageUrl" height="100px" :class="['product-image', 'float-right']" cover></v-img>
             </div>
 
-            <v-card-item>
-                <v-card-title>{{ product.name }}</v-card-title>
-
-                <v-card-subtitle>R$ {{ product.price }}</v-card-subtitle>
-            </v-card-item>
+            <v-card-title>{{ product.name }}</v-card-title>
+            <v-card-subtitle>R$ {{ product.price }}</v-card-subtitle>
 
             <v-card-text>
                 {{ product.description }}
@@ -36,14 +33,18 @@
 
 <script>
 export default {
-    data: () => ({
-        show: false,
-    }),
-    props: ['data'],
-    computed: {
-        product() {
-            return this.data;
-        },
+    data() {
+        return {
+            show: false,
+            product: this.data
+        }
     },
+    props: ['data'],
+    methods: {
+        redirectToProductPage() {
+            const productId = this.product.productId;
+            this.$router.push({ name: 'product', params: { id: productId } });
+        }
+    }
 }
 </script>
