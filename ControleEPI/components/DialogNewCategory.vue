@@ -12,7 +12,7 @@
           <v-container>
             <v-row>
               <v-col cols="12">
-                <v-text-field label="Nome*" required v-model="name"></v-text-field>
+                <v-text-field label="Nome*" required v-model="name" :rules="categoryRules"></v-text-field>
               </v-col>
             </v-row>
           </v-container>
@@ -39,7 +39,14 @@ import { getCategories } from '../axios/api.ts'
 export default {
   data: () => ({
     dialog: false,
-    name: ''
+    name: '',
+    categoryRules: [
+          value => {
+            if (value?.length > 3) return true
+  
+            return 'Categoria deve conter mais de 3 caracteres.'
+          },
+        ]
   }),
   props: ["data"],
   methods: {

@@ -7,7 +7,7 @@
           </v-btn>
         </template>
         <v-list>
-          <v-list-item @click="setModalEpi(category.categoryId)">
+          <v-list-item class="blue--text text--lighten-1" @click="setModalEpi(category.categoryId)">
             <v-list-item-title>Adicionar EPI</v-list-item-title>
           </v-list-item>
         </v-list>

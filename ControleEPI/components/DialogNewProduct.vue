@@ -9,17 +9,17 @@
           <v-container>
             <v-row>
               <v-col cols="6">
-                <v-text-field label="Nome*" required v-model="name" :value="name"></v-text-field>
+                <v-text-field label="Nome*" required v-model="name" :value="name" :rules="nameRules"></v-text-field>
               </v-col>
               <v-col cols="6">
                 <v-text-field label="Valor*" required type="number" step="0.01" v-model.number="price"
                   :value="price"></v-text-field>
               </v-col>
               <v-col cols="12">
-                <v-text-field label="Descrição*" required v-model="description" :value="description"></v-text-field>
+                <v-text-field label="Descrição*" required v-model="description" :value="description" :rules="descriptionRules"></v-text-field>
               </v-col>
               <v-col cols="12">
-                <v-text-field label="Imagem URL*" required v-model="imageUrl" :value="imageUrl"></v-text-field>
+                <v-text-field label="Imagem URL*" required v-model="imageUrl" :value="imageUrl" :rules="imageUrlRules"></v-text-field>
               </v-col>
             </v-row>
           </v-container>
@@ -54,7 +54,19 @@ export default {
       description: this.product ? this.product.description : '',
       imageUrl: this.product ? this.product.imageUrl : '',
       price: this.product ? this.product.price : 0,
-      productId: this.product ? this.product.productId : null
+      productId: this.product ? this.product.productId : null,
+      nameRules: [
+        v => !!v || 'Nome é requerido!',
+        v => (v && v.length >= 3) || 'O nome deve ser conter no mínimo 3 caracteres.',
+      ],
+      descriptionRules: [
+        v => !!v || 'Descrição é requerido!',
+        v => (v && v.length >= 10 && v.length <= 300) || 'Descrição deve ser conter entre 10 e 300 caracteres.',
+      ],
+      imageUrlRules: [
+        v => !!v || 'La URL de la imagen es requerida',
+        v => /^https?:\/\/\S+$/.test(v) || 'Inserir uma URL de imagem válida',
+      ],
     };
   },
   methods: {

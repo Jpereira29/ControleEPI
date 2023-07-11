@@ -101,11 +101,6 @@ export default {
           icon: 'mdi-apps',
           title: 'Dashboard',
           to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Product',
-          to: '/product'
         }
       ],
       miniVariant: false,

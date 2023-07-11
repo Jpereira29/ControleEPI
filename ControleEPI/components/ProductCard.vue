@@ -16,7 +16,7 @@
 </style>
 <template>
     <div class="d-flex align-center flex-column">
-        <v-card width="400" style="margin: 5px;" @click="redirectToProductPage">
+        <v-card width="400" style="margin: 5px;" @click="redirectToProductPage" v-if="product">
             <div class="parent-div">
                 <v-img :src="product.imageUrl" height="100px" :class="['product-image', 'float-right']" cover></v-img>
             </div>
